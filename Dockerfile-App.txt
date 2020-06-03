@@ -10,7 +10,7 @@ LABEL company="HEWLETT PACKARD ENTERPRISE" \
 RUN apt-get update -y 
 RUN apt-get install apache2 -y
 RUN apt-get install wget -y
-RUN apt-get unzip -yml
+RUN apt-get install unzip -y
 
 
 # Copy the static website to Apache deployment directory(/var/www/html) WORKDIR /var/www/html
