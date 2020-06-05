@@ -3,24 +3,24 @@ FROM ubuntu:16.04
 LABEL company="HEWLETT PACKARD ENTERPRISE" \
       maintainer="SIVAKALYAN SULLURU" \
       Location="Banglore" \
-      Version="11.0.2"
+      Version="11.0.1"
 
 # httpd is the package name for apache in Linux
 # apache2 is the package name for apache in Ubuntu
-RUN apt-get update -y 
+RUN apt-get update -y
 RUN apt-get install apache2 -y
 RUN apt-get install wget -y
-RUN apt-get install unzip -y
+#RUN apt-get unzip -yml
 
 
 # Copy the static website to Apache deployment directory(/var/www/html) WORKDIR /var/www/html
 
-WORKDIR /tmp
+#WORKDIR /tmp
 
-RUN wget https://github.com/Dev-siva/closing/archive/master.zip
-RUN unzip master.zip
+#RUN wget https://github.com/Dev-siva/Docker-file/archive/master.zip
+#RUN unzip master.zip
 
-RUN cp -r closing-master/* /var/www/html/
+COPY  . /var/www/html/
 
 
 EXPOSE 80
